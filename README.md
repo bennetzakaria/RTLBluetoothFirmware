@@ -29,6 +29,16 @@ Confirmed working on **macOS 26 (Tahoe)**, OpenCore 1.0.7, Intel — phone + aud
 | Discovering *brand-new* devices | ⚠️ finicky — macOS runs only a short inquiry on this chip; put a device in pairing mode and click it promptly |
 | Apple Continuity (Handoff / AirDrop-to-Apple / Universal Clipboard) | ❌ needs genuine Apple BT+Wi-Fi hardware — not a dongle limitation we can fix |
 
+## Download
+
+- **Prebuilt kext** — grab the latest `.kext` from the **[Releases page](https://github.com/bennetzakaria/RTLBluetoothFirmware/releases)**.
+- **Build from source** — run `make` (see [Build](#build); the firmware is fetched automatically).
+
+> 🛒 **Don't have the adapter yet?**
+> This kext is for the **TP-Link UB500 (Realtek RTL8761BU)** → **[get it on Amazon](https://www.amazon.com/s?k=TP-Link+UB500&tag=bennzo-20)** *(verify it's the RTL8761BU revision — see [Get the hardware](#get-the-hardware))*.
+> Want Bluetooth with **zero setup**? A **[CSR8510 dongle](https://www.amazon.com/s?k=csr8510+a10+bluetooth&tag=bennzo-20)** works on macOS with **no kext at all**.
+> *(Affiliate links — buying through them supports the project at no extra cost. Full disclosure below.)*
+
 ## Supported hardware
 
 - **TP-Link UB500** — Realtek **RTL8761BU**, USB `VID 0x2357 / PID 0x0604`

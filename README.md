@@ -36,6 +36,24 @@ Confirmed working on **macOS 26 (Tahoe)**, OpenCore 1.0.7, Intel — phone + aud
 - RTL8761B (UART) and other Realtek BT chips are **not** covered by this build,
   though the approach generalizes (different firmware file + ID).
 
+## Get the hardware
+
+> **Affiliate disclosure:** As an Amazon Associate I earn from qualifying
+> purchases. Some links below are Amazon affiliate links — buying through them
+> supports this project at no extra cost to you.
+
+<!-- MAINTAINER TODO: once your Amazon Associates account is approved, open each
+     product page, use SiteStripe → "Get Link → Text", and paste that link here.
+     SiteStripe embeds your Associate tag automatically. Until you do, these are
+     ordinary (non-earning) search links. -->
+
+| Goal | Where | Read this first |
+|---|---|---|
+| **Make *this project* work** | [Search: TP-Link UB500](https://www.amazon.com/s?k=TP-Link+UB500) | **Verify the chip is RTL8761BU** — the BT 5.0/5.1 *nano* version that reports `VID 0x2357 / PID 0x0604`. Newer **"UB500 Plus" / BT 5.3 / 5.4** revisions may use a different chip and are **not guaranteed** to work with this firmware. |
+| **Bluetooth with zero hassle** | [Search: CSR8510 A10 dongle](https://www.amazon.com/s?k=csr8510+a10+bluetooth) | `bluetoothd` supports **CSR** natively — works out of the box on macOS, **no kext at all**. The easiest path if you just want it to work. |
+| **Broadcom (well-supported)** | Search *"BCM20702 USB Bluetooth"* | Needs `BrcmPatchRAM3` + `BrcmFirmwareData` (standard, low-risk kexts). |
+| **Better placement / range** | A short **USB 2.0 extension cable** | Keeps the dongle off a crowded or USB-3 port — often improves stability. |
+
 ## Requirements
 
 - macOS 12 (Monterey) – 26 (Tahoe), Intel `x86_64`

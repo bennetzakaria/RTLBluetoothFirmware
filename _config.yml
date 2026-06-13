@@ -1,0 +1,9 @@
+# GitHub Pages — renders README.md as a styled landing page at
+# https://bennetzakaria.github.io/RTLBluetoothFirmware/
+# Enable: repo Settings → Pages → Source: "Deploy from a branch" → main / (root).
+title: RTLBluetoothFirmware
+description: >-
+  Realtek RTL8761B / RTL8761BU (TP-Link UB500) Bluetooth firmware loader
+  for macOS — OpenCore Hackintosh.
+theme: jekyll-theme-cayman
+show_downloads: true

@@ -1,0 +1,23 @@
+# Build output
+RTLBluetoothFirmware.kext/
+*.o
+
+# Generated (firmware embedded at build time)
+RTLFirmwareData.hpp
+
+# Firmware blobs — NOT redistributed (Realtek license); fetched at build time
+Resources/
+
+# Linux kernel reference source / scratch (GPL upstream — link, don't vendor)
+reference/
+
+# Privacy: OpenCore config backups contain machine serial / UUID / SMBIOS
+config.plist*
+*.backup-*
+
+# macOS / local
+.DS_Store
+.claude/
+
+# Release artifacts (attach to GitHub Releases, not the repo)
+*.zip

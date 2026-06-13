@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.opendev.RTLBluetoothFirmware</string>
+
+    <key>CFBundleName</key>
+    <string>RTLBluetoothFirmware</string>
+
+    <key>CFBundleVersion</key>
+    <string>1.2.0</string>
+
+    <key>CFBundleShortVersionString</key>
+    <string>1.2.0</string>
+
+    <key>CFBundlePackageType</key>
+    <string>KEXT</string>
+
+    <key>CFBundleExecutable</key>
+    <string>RTLBluetoothFirmware</string>
+
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+
+    <!-- Required for OpenCore to inject this kext into the boot kernel
+         collection (same as Lilu et al.). Without it the kext is silently
+         skipped and never matches the device. -->
+    <key>OSBundleRequired</key>
+    <string>Root</string>
+
+    <key>OSBundleLibraries</key>
+    <dict>
+        <key>com.apple.iokit.IOUSBHostFamily</key>
+        <string>1.2</string>
+        <key>com.apple.kpi.iokit</key>
+        <string>16.7</string>
+        <key>com.apple.kpi.libkern</key>
+        <string>16.7</string>
+        <key>com.apple.kpi.mach</key>
+        <string>16.7</string>
+    </dict>
+
+    <key>IOKitPersonalities</key>
+    <dict>
+        <!--
+            TP-Link UB500 (VID 0x2357 = 9047, PID 0x0604 = 1540).
+            Custom IOMatchCategory: we coexist with the default-category
+            composite driver instead of displacing it, exactly like
+            IntelBluetoothFirmware. bluetoothd (patched by BlueToolFixup)
+            claims the device from userspace after we close it.
+        -->
+        <key>RTLBluetoothFirmware_UB500</key>
+        <dict>
+            <key>CFBundleIdentifier</key>
+            <string>com.opendev.RTLBluetoothFirmware</string>
+
+            <key>IOClass</key>
+            <string>RTLBluetoothFirmware</string>
+
+            <key>IOProviderClass</key>
+            <string>IOUSBHostDevice</string>
+
+            <key>idVendor</key>
+            <integer>9047</integer>
+
+            <key>idProduct</key>
+            <integer>1540</integer>
+
+            <key>IOProbeScore</key>
+            <integer>4000</integer>
+
+            <key>IOMatchCategory</key>
+            <string>RTLBluetoothFirmware</string>
+        </dict>
+    </dict>
+</dict>
+</plist>

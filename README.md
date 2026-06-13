@@ -1,19 +1,19 @@
 # RTLBluetoothFirmware
 
-**Realtek RTL8761B / RTL8761BU Bluetooth firmware loader for macOS (OpenCore Hackintosh).**
+Realtek RTL8761B / RTL8761BU Bluetooth firmware loader for macOS (OpenCore Hackintosh).
 
-Makes the **TP-Link UB500** (and other RTL8761BU USB dongles) work as a real
-Bluetooth controller on macOS 12 – 26, by uploading the Realtek firmware at boot
-— exactly the way Linux's `btrtl` driver does, reimplemented as an IOKit kext.
+Makes the TP-Link UB500 (and other RTL8761BU USB dongles) work as a real
+Bluetooth controller on macOS 12–26 by uploading the Realtek firmware at boot —
+the same approach Linux's `btrtl` driver uses, reimplemented as an IOKit kext.
 
-> The RTL8761BU ships with **no firmware**. Linux uploads `rtl8761bu_fw.bin` via
-> HCI vendor commands before the generic Bluetooth stack takes over. macOS has no
-> driver that does this, which is why every guide says *"Realtek is unsupported on
-> macOS — buy a Broadcom dongle."* This kext does the firmware upload, then hands
-> the controller to macOS's own `bluetoothd` (patched by **BlueToolFixup**).
+The RTL8761BU ships with no firmware. Linux uploads `rtl8761bu_fw.bin` via HCI
+vendor commands before the generic Bluetooth stack takes over; macOS has no
+driver that does this, which is why the usual advice is to replace the adapter
+with a Broadcom one. This kext performs the firmware upload, then hands the
+controller to macOS's own `bluetoothd` (patched by BlueToolFixup).
 
-Confirmed working on **macOS 26 (Tahoe)**, OpenCore 1.0.7, Intel — phone + audio
-(A2DP/HFP/AVRCP) connected, battery reporting, HID.
+Confirmed on macOS 26 (Tahoe), OpenCore 1.0.7, Intel: phone and audio
+(A2DP/HFP/AVRCP) connected, battery reporting, and HID.
 
 ---
 
@@ -27,7 +27,7 @@ Confirmed working on **macOS 26 (Tahoe)**, OpenCore 1.0.7, Intel — phone + aud
 | Audio (A2DP / HFP / AVRCP) + battery | ✅ |
 | HID (mice/keyboards) | ✅ |
 | Discovering *brand-new* devices | ⚠️ finicky — macOS runs only a short inquiry on this chip; put a device in pairing mode and click it promptly |
-| Apple Continuity (Handoff / AirDrop-to-Apple / Universal Clipboard) | ❌ needs genuine Apple BT+Wi-Fi hardware — not a dongle limitation we can fix |
+| Apple Continuity (Handoff / AirDrop / Universal Clipboard) | ❌ requires genuine Apple Bluetooth/Wi-Fi hardware |
 
 ## Download
 
@@ -64,6 +64,9 @@ UB600 ([B0GVPZ4P6B](https://www.amazon.com/dp/B0GVPZ4P6B?tag=bennzo-20)),
 UB400 ([B07V1SZCY6](https://www.amazon.com/dp/B07V1SZCY6?tag=bennzo-20)),
 Archer T2UB ([B0BJ7XJ27X](https://www.amazon.com/dp/B0BJ7XJ27X?tag=bennzo-20)),
 Archer TX10UB ([B0F9CNQN42](https://www.amazon.com/dp/B0F9CNQN42?tag=bennzo-20)).
+
+Accessory: a short [USB 2.0 extension cable](https://www.amazon.com/s?k=USB+2.0+extension+cable&tag=bennzo-20)
+helps if a rear USB-2 port is awkward to reach.
 
 <sub>Some links above are Amazon affiliate links; a purchase may earn the maintainer a small commission at no additional cost to you. Verify chipset compatibility before buying.</sub>
 

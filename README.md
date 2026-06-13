@@ -35,7 +35,7 @@ Confirmed working on **macOS 26 (Tahoe)**, OpenCore 1.0.7, Intel — phone + aud
 - **Build from source** — run `make` (see [Build](#build); the firmware is fetched automatically).
 
 > 🛒 **Don't have the adapter yet?**
-> This kext is for the **TP-Link UB500 (Realtek RTL8761BU)** → **[get it on Amazon](https://www.amazon.com/s?k=TP-Link+UB500&tag=bennzo-20)** *(verify it's the RTL8761BU revision — see [Get the hardware](#get-the-hardware))*.
+> This kext is for the **TP-Link UB500 (Realtek RTL8761BU)** → **[get it on Amazon](https://www.amazon.com/dp/B09DMP6T22?tag=bennzo-20)** *(verify it's the RTL8761BU revision — see [Get the hardware](#get-the-hardware))*.
 > Want Bluetooth with **zero setup**? A **[CSR8510 dongle](https://www.amazon.com/s?k=csr8510+a10+bluetooth&tag=bennzo-20)** works on macOS with **no kext at all**.
 > *(Affiliate links — buying through them supports the project at no extra cost. Full disclosure below.)*
 
@@ -49,19 +49,31 @@ Confirmed working on **macOS 26 (Tahoe)**, OpenCore 1.0.7, Intel — phone + aud
 ## Get the hardware
 
 > **Affiliate disclosure:** As an Amazon Associate I earn from qualifying
-> purchases. Some links below are Amazon affiliate links — buying through them
+> purchases. The Amazon links below are affiliate links — buying through them
 > supports this project at no extra cost to you.
 
-<!-- Links carry the maintainer's Amazon Associate tag (bennzo-20). For
-     product-specific links with images, regenerate via Associates Central →
-     SiteStripe → "Get Link"; the tag is embedded automatically. -->
+### ✅ Confirmed working with this kext
+- **TP-Link UB500 — Realtek RTL8761BU** → **[Amazon](https://www.amazon.com/dp/B09DMP6T22?tag=bennzo-20)**
+  The exact adapter this project is built and tested on (`VID 0x2357 / PID 0x0604`).
+  ⚠️ Amazon sometimes ships revised UB500 hardware under the same listing — if `system_profiler SPUSBDataType` doesn't show **PID 0x0604** (chip RTL8761BU), it's a different revision and won't work.
 
-| Goal | Where | Read this first |
-|---|---|---|
-| **Make *this project* work** | [TP-Link UB500](https://www.amazon.com/s?k=TP-Link+UB500&tag=bennzo-20) | **Verify the chip is RTL8761BU** — the BT 5.0/5.1 *nano* version that reports `VID 0x2357 / PID 0x0604`. Newer **"UB500 Plus" / BT 5.3 / 5.4** revisions may use a different chip and are **not guaranteed** to work with this firmware. |
-| **Bluetooth with zero hassle** | [CSR8510 A10 dongle](https://www.amazon.com/s?k=csr8510+a10+bluetooth&tag=bennzo-20) | `bluetoothd` supports **CSR** natively — works out of the box on macOS, **no kext at all**. The easiest path if you just want it to work. |
-| **Broadcom (well-supported)** | [BCM20702 USB Bluetooth](https://www.amazon.com/s?k=BCM20702+USB+Bluetooth&tag=bennzo-20) | Needs `BrcmPatchRAM3` + `BrcmFirmwareData` (standard, low-risk kexts). |
-| **Better placement / range** | [USB 2.0 extension cable](https://www.amazon.com/s?k=USB+2.0+extension+cable&tag=bennzo-20) | Keeps the dongle off a crowded or USB-3 port — often improves stability. |
+### ✅ Works on macOS with **no kext** (easiest path)
+- **CSR8510 A10 dongle** → **[Amazon](https://www.amazon.com/s?k=csr8510+a10+bluetooth&tag=bennzo-20)** — `bluetoothd` supports CSR natively, no driver needed.
+- **Broadcom BCM20702 dongle** → **[Amazon](https://www.amazon.com/s?k=BCM20702+USB+Bluetooth&tag=bennzo-20)** — works with the standard `BrcmPatchRAM3` + `BrcmFirmwareData` kexts.
+
+### ⚠️ Other TP-Link Bluetooth adapters — **different chips, NOT supported here**
+> **"TP-Link Bluetooth" ≠ compatible.** These models use different/newer chips
+> (or are Wi-Fi + Bluetooth combos), so this kext will **not** load firmware for
+> them. Listed for reference only — **check the chipset before you buy.**
+>
+> - **UB500 Plus** (BT 5.3) → [Amazon](https://www.amazon.com/dp/B0DKFXGR21?tag=bennzo-20)
+> - **UB600** (BT 5.4) → [Amazon](https://www.amazon.com/dp/B0GVPZ4P6B?tag=bennzo-20)
+> - **UB400** (BT 4.0) → [Amazon](https://www.amazon.com/dp/B07V1SZCY6?tag=bennzo-20)
+> - **Archer T2UB** (Wi-Fi + BT) → [Amazon](https://www.amazon.com/dp/B0BJ7XJ27X?tag=bennzo-20)
+> - **Archer TX10UB** (Wi-Fi 6 + BT) → [Amazon](https://www.amazon.com/dp/B0F9CNQN42?tag=bennzo-20)
+
+### Accessories
+- **USB 2.0 extension cable** → [Amazon](https://www.amazon.com/s?k=USB+2.0+extension+cable&tag=bennzo-20) — keeps the dongle off a crowded or USB-3 port; often improves stability.
 
 ## Requirements
 

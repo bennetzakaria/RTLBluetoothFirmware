@@ -17,17 +17,17 @@ Confirmed on macOS 26 (Tahoe), OpenCore 1.0.7, Intel: phone and audio
 
 ---
 
-## Status / what works
+## Status
 
-| | |
+| Feature | State |
 |---|---|
-| Firmware upload at boot | ✅ automatic, every boot |
-| Controller adopted by macOS | ✅ `THIRD_PARTY_DONGLE`, real BD_ADDR |
-| Pairing / connecting | ✅ |
-| Audio (A2DP / HFP / AVRCP) + battery | ✅ |
-| HID (mice/keyboards) | ✅ |
-| Discovering *brand-new* devices | ⚠️ finicky — macOS runs only a short inquiry on this chip; put a device in pairing mode and click it promptly |
-| Apple Continuity (Handoff / AirDrop / Universal Clipboard) | ❌ requires genuine Apple Bluetooth/Wi-Fi hardware |
+| Firmware upload at boot | Works, automatic on every boot |
+| Controller adopted by macOS | Works (`THIRD_PARTY_DONGLE`, real BD_ADDR) |
+| Pairing and connecting | Works |
+| Audio (A2DP / HFP / AVRCP) and battery | Works |
+| HID (mice, keyboards) | Works |
+| Discovering brand-new devices | Limited. macOS runs only a short inquiry on this chip, so put a device in pairing mode and select it promptly. Already-paired devices reconnect fine. |
+| Apple Continuity (Handoff, AirDrop, Universal Clipboard) | Not supported. Requires genuine Apple Bluetooth/Wi-Fi hardware. |
 
 ## Download
 

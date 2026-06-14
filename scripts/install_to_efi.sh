@@ -66,7 +66,7 @@ cp -R "$KEXT" "$OC/Kexts/"
 echo ">>> Verifying installed copy…"
 if diff -q "$KEXT/Contents/MacOS/RTLBluetoothFirmware" \
            "$OC/Kexts/RTLBluetoothFirmware.kext/Contents/MacOS/RTLBluetoothFirmware" >/dev/null; then
-  echo "    installed binary matches build ✓"
+  echo "    installed binary matches build (OK)"
 else
   echo "    ERROR: installed binary differs!"; exit 1
 fi
